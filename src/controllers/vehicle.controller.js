@@ -1,4 +1,5 @@
 import Vehicle from '../models/Vehicle.js';
+import * as vehicleService from '../libs/informationService.js';
 
 export const createVehicle = async (req, res) => {
   try {
@@ -37,5 +38,29 @@ export const createVehicle = async (req, res) => {
   } catch (error) {
     console.error('Error al crear el vehículo:', error);
     res.status(500).json({ error: 'Error interno del servidor' });
+  }
+};
+
+export const getVehiclesByUserId = async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const vehicles = await vehicleService.getVehiclesByUserId(userId);
+
+    res.json(vehicles);
+  } catch (error) {
+    console.error('Error fetching vehicles:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};
+
+export const getMyVehicles = async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const vehicles = await vehicleService.getVehiclesByUserId(userId);
+
+    res.json(vehicles);
+  } catch (error) {
+    console.error('Error fetching vehicles:', error);
+    res.status(500).json({ error: 'Internal server error' });
   }
 };

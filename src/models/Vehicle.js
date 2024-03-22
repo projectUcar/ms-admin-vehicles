@@ -41,7 +41,12 @@ const vehicleSchema = new mongoose.Schema({
     enum: ['pending', 'approved', 'rejected'],
     default: 'pending',
   },
-});
+},
+  {
+    timestamps: true,
+    versionKey: false,
+  }
+);
 
 const Vehicle = mongoose.model('Vehicle', vehicleSchema);
 
