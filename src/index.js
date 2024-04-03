@@ -2,5 +2,7 @@ import app from "./app";
 import { PORT } from "./config.js";
 import './database'
 
-app.listen(PORT);
-console.log('Server listening on port', PORT);
+const port  = PORT || 8080; 
+
+app.listen(port);
+console.log('Server listening on port', port);
