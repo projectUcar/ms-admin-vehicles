@@ -64,3 +64,17 @@ export const getMyVehicles = async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 };
+
+export const getVehicleById = async (req, res) => {
+  try {
+    const {vehicleId} = req.params;
+    const vehicle = await Vehicle.findById(vehicleId);
+
+    if (!vehicle) return res.status(404).json({ message: 'El vechiculo no ha sido encontrado'});
+
+    res.json(vehicle);
+  } catch (error) {
+    console.error('Error fetching vehicles:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};
