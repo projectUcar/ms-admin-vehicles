@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: ms_routes-test
+    container_name: ms_vehicles-test
     env_file:
       - ./variables.env
     ports:
