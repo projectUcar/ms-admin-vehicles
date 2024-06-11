@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  ms_vehicles-tes: 
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ms_routes-test
+    env_file:
+      - ./variables.env
+    ports:
+      - "3000:3000"
+      - "5671:5671"
+    command: npm start
+ 
