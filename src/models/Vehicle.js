@@ -36,6 +36,13 @@ const vehicleSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  isOwner: {
+    type: Boolean,
+    required: true,
+  },
+  documentNumberOwner: {
+    type: String,
+  },
   state: {
     type: String,
     enum: ['pending', 'approved', 'rejected'],

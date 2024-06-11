@@ -11,6 +11,7 @@ export const createVehicle = async (req, res) => {
       color,
       seats,
       doors,
+      isOwner
     } = req.body;
 
     // Validar la placa utilizando una expresión regular
@@ -30,6 +31,7 @@ export const createVehicle = async (req, res) => {
       color,
       seats,
       doors,
+      isOwner
     });
 
     await vehicle.save();
