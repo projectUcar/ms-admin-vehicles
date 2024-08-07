@@ -12,4 +12,10 @@ services:
       - "3000:3000"
       - "5671:5671"
     command: npm start
+    networks:
+      - ucar-network
+
+networks:
+  ucar-network:
+    external: true
  
